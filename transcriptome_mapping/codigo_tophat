@@ -1,0 +1,12 @@
+>bowtie2-build Trinity.fasta trinity
+
+>tophat2 -T trinity /home/usuario/descargas_selene/Sp_log.left.fq.gz,/home/usuario/descargas_selene/Sp_hs.left.fq.gz,/home/usuario/descargas_selene/Sp_ds.left.fq.gz,/home/usuario/descargas_selene/Sp_plat.left.fq.gz,/home/usuario/descargas_selene/Sp_log.right.fq.gz,/home/usuario/descargas_selene/Sp_hs.right.fq.gz,/home/usuario/descargas_selene/Sp_ds.right.fq.gz,/home/usuario/descargas_selene/Sp_plat.right.fq.gz
+
+>samtools sort accepted_hits.bam trinity_sort
+
+>samtools index trinity_sort.bam
+
+
+
+
+
