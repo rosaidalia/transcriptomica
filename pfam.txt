@@ -1,0 +1,32 @@
+Yo primero obtuve la seleccion de la columna en donde se encuentra el pfam, recorte esa columna y por medio de la manipulacion de importar datos en donde puedes seleccionar la forma en que quieres que se corten los datos obtuve la columna que solo contiene los pfam, ademas las ordene . Todo esto lo hice en open office desde la hoja de calculo,. Lo pude haber hecho de forma mas elegante desde la terminal manejando los comandos aprendidos solo lo hice aqui por practicidad de la interaccion con las ventanas. 
+
+Luego en RStudio
+datos <- read.table("~/descargas_selene/Annotacion/temp.RData", quote="\"")
+table(datos) te cuenta el numero de pepeticiones que aparece de cada cifra
+
+sort(table(datos),decreasing = TRUE) con esto ordeno es numero de repeticiones en orden decresiente para saber cuales son los 10 que aparecen con mas repeticiones
+y ademas con un head podemos ver esta informacion mas detallada.
+
+si solo escribimos esto 
+head(sort(table(datos),decreasing = TRUE),10)
+datos
+ 400.29   12.17   76.19 12382.5  118.21  248.18 1496.16 2733.14  3303.1  3981.9 
+      6       4       4       4       3       3       3       3       3       3 
+
+no se si me esta mostrando todos los que tienen 3 repeticiones
+pero escribiendo 
+
+head(sort(table(datos),decreasing = TRUE),14)
+datos
+ 400.29   12.17   76.19 12382.5  118.21  248.18 1496.16 2733.14  3303.1  3981.9  8449.8  8585.9 13361.3   78.24 
+      6       4       4       4       3       3       3       3       3       3       3       3       3       2 
+
+
+asi que para no seleccionar menos de los que reportan 3 repeticiones elijo todos los que reportan de 3 a 6 repeticiones
+
+datos_repeticiones=head(sort(table(datos),decreasing = TRUE),13)
+al hacer un barplot(datos_repeticiones) aparece muy poca informacion pues las etiquetas no caben asi que uso la funcion las=2 para que acomode las etiquetas de forma vertical
+  
+ejecutando la siguiente instruccion
+barplot(datos_repeticiones, names.arg=names(datos_repeticiones), las=2)
+finalmente me da la grafica 
